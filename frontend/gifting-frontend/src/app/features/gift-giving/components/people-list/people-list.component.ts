@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { PersonListItem } from 'src/app/models/people';
+import { PersonDataService } from 'src/app/services/people-data.service';
+
+
 
 @Component({
   selector: 'app-people-list',
@@ -7,4 +12,10 @@ import { Component } from '@angular/core';
 })
 export class PeopleListComponent {
 
+  people$: Observable<PersonListItem[]>;
+  constructor(private service:PersonDataService) {
+    // this is bad. More on that tomorrow.
+    this.people$ = service.getPeople();
+    // service.getPeople()
+  }
 }

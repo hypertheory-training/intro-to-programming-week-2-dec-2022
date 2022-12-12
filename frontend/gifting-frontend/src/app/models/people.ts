@@ -1,6 +1,6 @@
 
 export type PersonListItem = {
     id: string;
-    firstname: string;
+    firstName: string;
     lastName: string;
 }

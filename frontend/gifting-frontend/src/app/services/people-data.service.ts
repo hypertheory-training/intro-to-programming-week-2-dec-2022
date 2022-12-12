@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { PersonListItem } from '../models/people';
 
+
 @Injectable()
 export class PersonDataService {
     constructor(private client:HttpClient) {}

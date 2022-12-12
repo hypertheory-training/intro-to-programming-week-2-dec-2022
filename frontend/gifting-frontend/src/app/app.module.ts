@@ -10,6 +10,7 @@ import { GiftGivingComponent } from './features/gift-giving/gift-giving.componen
 import { AboutUsComponent } from './features/about-us/about-us.component';
 import { PeopleListComponent } from './features/gift-giving/components/people-list/people-list.component';
 import {HttpClientModule} from '@angular/common/http';
+import { PersonDataService } from './services/people-data.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [PersonDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
