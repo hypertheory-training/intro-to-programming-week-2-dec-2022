@@ -10,4 +10,5 @@ public class PersonEntity
 
     public bool UnFriended { get; set; } = false;
 
+    public string? NickName { get; set; }
 }
