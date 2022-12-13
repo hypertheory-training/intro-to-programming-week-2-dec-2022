@@ -16,3 +16,9 @@ Content-Type: application/json
     "firstName": "Gene",
     "lastName": "Sisko"
 }
+
+
+### Getting a single person
+GET http://localhost:1337/people/18 HTTP/1.1
+Accept: application/json
+

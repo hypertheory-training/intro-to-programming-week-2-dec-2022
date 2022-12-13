@@ -46,6 +46,14 @@ public class EfPeopleCatalog : ICatalogPeople
         return new PersonResponse(data!);
     }
 
+    public async Task<PersonItemResponse?> GetPersonByIdAsync(int id)
+    {
+        return await GetPeopleThatAreStillFriends()
+            .Where(p => p.Id == id)
+            .Select(p => new PersonItemResponse(p.Id.ToString(), p.FirstName, p.LastName))
+            .SingleOrDefaultAsync(); 
+    }
+
     private IQueryable<PersonEntity> GetPeopleThatAreStillFriends()
     {
         return _context.People.Where(p => p.UnFriended == false).OrderBy(p => p.LastName).ThenBy(p => p.FirstName);
