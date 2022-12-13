@@ -22,3 +22,8 @@ export const selectPeopleList = createSelector(
     selectAllPeople,
     (p) => p as PersonListItem[]
 )
+
+export const selectNumberOfPeople = createSelector(
+    selectAllPeople,
+    p => p.length
+)
