@@ -40,11 +40,14 @@ public class EfPeopleCatalog : ICatalogPeople
     public async Task<PersonResponse> GetPeopleAsync()
     {
         // Select Id, FirstName, LastName from People where Unfriended = 0
-        var data = await _context.People
-             .Where(p => p.UnFriended == false) // filter
-             .Select(p => new PersonItemResponse(p.Id.ToString(), p.FirstName, p.LastName)) // map
-             .ToListAsync();
+        var data = await GetPeopleThatAreStillFriends().
+            Select(p => new PersonItemResponse(p.Id.ToString(), p.FirstName, p.LastName)).ToListAsync();
+        
+        return new PersonResponse(data!);
+    }
 
-        return new PersonResponse(data);
+    private IQueryable<PersonEntity> GetPeopleThatAreStillFriends()
+    {
+        return _context.People.Where(p => p.UnFriended == false).OrderBy(p => p.LastName).ThenBy(p => p.FirstName);
     }
 }
