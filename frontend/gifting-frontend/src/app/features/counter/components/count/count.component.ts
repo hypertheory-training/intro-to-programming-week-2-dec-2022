@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { selectCountCurrent } from '../../state';
+import { CounterCommands } from '../../state/actions/count-actions';
 
 @Component({
   selector: 'app-count',
@@ -6,13 +9,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./count.component.css']
 })
 export class CountComponent {
-  current = 0;
+  current$ = this.store.select(selectCountCurrent);
 
+  constructor(private store:Store) {}
   increment() {
-    this.current += 1;
+   this.store.dispatch(CounterCommands.incremented());
   }
 
   decrement() {
-    this.current -=1;
+    this.store.dispatch(CounterCommands.decremented());
   }
 }
