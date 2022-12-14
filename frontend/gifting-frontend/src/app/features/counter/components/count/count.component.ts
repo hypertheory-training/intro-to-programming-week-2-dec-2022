@@ -19,4 +19,7 @@ export class CountComponent {
   decrement() {
     this.store.dispatch(CounterCommands.decremented());
   }
+  reset() {
+    this.store.dispatch(CounterCommands.reset());
+  }
 }

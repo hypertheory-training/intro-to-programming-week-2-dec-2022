@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CountComponent } from './components/count/count.component';
 import { StoreModule } from '@ngrx/store';
 import { featureName, reducers } from './state';
+import { PrefsComponent } from './components/prefs/prefs.component';
 
 // /counter/count
 
@@ -18,6 +19,10 @@ const routes: Routes = [
         component: CountComponent
       },
       {
+        path: 'prefs',
+        component: PrefsComponent
+      },
+      {
         path: '**',
         redirectTo: 'count'
       }
@@ -28,7 +33,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     CounterComponent,
-    CountComponent
+    CountComponent,
+    PrefsComponent
   ],
   imports: [
     CommonModule,

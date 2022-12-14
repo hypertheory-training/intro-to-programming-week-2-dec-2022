@@ -25,3 +25,4 @@ const selectCountBranch = createSelector(selectFeature, f => f.count);
 
 
 export const selectCountCurrent = createSelector(selectCountBranch, b => b.current);
+export const selectCountingBy = createSelector(selectCountBranch, b => b.by);
