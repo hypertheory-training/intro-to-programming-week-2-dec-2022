@@ -49,6 +49,7 @@ public class PeopleController : ControllerBase
     [HttpGet("/people")]
     public async Task<ActionResult<PersonResponse>> GetAllPeople()
     {
+        await Task.Delay(3000); // wait three seconds.
         PersonResponse response = await _personCatalog.GetPeopleAsync();
         return Ok(response); 
     }
