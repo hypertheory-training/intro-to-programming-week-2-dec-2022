@@ -26,9 +26,9 @@ import { PeopleEffects } from './state/effects/people-effects';
     NavigationComponent,
     DashboardComponent,
     GiftGivingComponent,
-    AboutUsComponent, 
-    PeopleListComponent, 
-    PeopleEntryComponent
+    AboutUsComponent,
+    PeopleListComponent,
+    PeopleEntryComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,9 +37,9 @@ import { PeopleEffects } from './state/effects/people-effects';
     ReactiveFormsModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([PeopleEffects])
+    EffectsModule.forRoot([PeopleEffects]),
   ],
   providers: [PersonDataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
