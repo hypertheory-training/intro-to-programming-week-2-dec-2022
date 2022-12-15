@@ -19,6 +19,11 @@ builder.Services.AddDbContext<GiftingDataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("gifts"));
 });
 
+builder.Services.AddHttpClient<OnCallLookupApiAdapter>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration.GetValue<string>("developer-api"));
+});
+
 // Example of CORS (Cross Origin Resource Sharing)
 builder.Services.AddCors(builder =>
 {
