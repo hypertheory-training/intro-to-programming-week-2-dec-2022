@@ -12,7 +12,7 @@ var app = builder.Build();
 
 app.MapGet("/developer", () => {
     var dev = DeveloperLookupUtils.GetDeveloperName();
-    var response = new OnCallDeveloperResponse(dev, $"{dev}@hypertheory.com");
+    var response = new OnCallDeveloperResponse(dev, $"{dev}@company.com");
     return Results.Ok(response);
 });
 app.Run();
